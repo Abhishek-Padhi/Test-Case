@@ -1,7 +1,7 @@
 var CityCheckLocators = function () {
 
-    this.DepartRoute = element.all(by.css('.origin-destination-label #origin-destination-label-desc')).get(0);
-    this.ReturnRoute = element.all(by.css('.origin-destination-label #origin-destination-label-desc')).get(1);
+    this.DepartRoute = element(by.xpath('//*[@id="origin-destination-label-desc"]'));
+    this.ReturnRoute = element.all(by.xpath('//*[@id="origin-destination-label-desc"]')).get(1);
     this.OriginTextBox = element(by.id('-origin-autocomplete-heatmap'));
     this.DestinationTextBox = element(by.id("-destination-autocomplete-heatmap"));
     this.DepartDate = element(by.id("-depart-autocomplete-heatmap"));
@@ -10,5 +10,4 @@ var CityCheckLocators = function () {
     this.SearchButton = element(by.id("flight-search-airasia-button-inner-button-select-flight-heatmap"));
 
 }
-module.exports=new CityCheckLocators();
-// //*[@id="origin-destination-label-desc"]
+module.exports = new CityCheckLocators();

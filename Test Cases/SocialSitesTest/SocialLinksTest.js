@@ -1,16 +1,16 @@
-var SocialLinks = require('/Users/mindfire/Desktop/ProtractorNew/Page Objects/Locators/SocialLinksLocators');
+var SocialLinks = require('../../Page Objects/SocialLinksLocators');
 //importing locators form SocialLinksLocators file
 
-var test = require('/Users/mindfire/Desktop/ProtractorNew/Test Cases/Util.js');
+var test = require('../Util');
 //importing from util.js file
 
+
+var preq = require('../constants');
 
 describe("Testing the Social Network Buttons", function () {
 
     beforeEach(function () {
-        browser.ignoreSynchronization = true;
-        browser.get("https://www.airasia.com/booking/home/en/gb");
-
+        preq;
 
     });
 
@@ -35,10 +35,12 @@ describe("Testing the Social Network Buttons", function () {
 
                 //Getting the URL from the new tab
 
-                browser.getCurrentUrl().then(function (URL) {
+                browser.wait(browser.getCurrentUrl()).then(function (URL) {
+
+
                     //matches the url of the current page with the desired url
-                    console.log('URL is'+URL)                        
-                    expect(URL).toContain('https://www.facebook.com/AirAsia');
+
+                    expect(browser.URL()).toContain('https://www.facebook.com/AirAsia');
 
                 })
 

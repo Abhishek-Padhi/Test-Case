@@ -1,3 +1,5 @@
+var HtmlReporter = require('protractor-beautiful-reporter');
+
 exports.config = {
   directConnect: true,
   capabilities: {
@@ -8,9 +10,18 @@ exports.config = {
   jasmineNodeOpts: {
     defaultTimeoutInterval: 50000
   },
-  onPrepare: function(){
-    browser.manage().window().maximize(); //maximizes the window 
-    },
   
-specs: ['Test Cases/FeedbackTest/Feedback.js']
+  
+specs: ['Test Cases/SocialSitesTest/SocialLinksTest.js'],
+onPrepare: function(){
+  browser.manage().window().maximize(); //maximizes the window 
+  },
+
+onPrepare: function() {
+  // Add a screenshot reporter and store screenshots to `/tmp/screenshots`:
+  jasmine.getEnv().addReporter(new HtmlReporter({
+     baseDirectory: 'Reports/screenshots'
+  }).getJasmine2Reporter());
+}
+
 };

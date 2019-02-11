@@ -10,5 +10,7 @@ var FlightSearchLocators=function(){
     this.DepartureDate="14/02/2019";
     this.ReturnDate="17/02/2019";
     this.check=element.all(by.css('.origin-destination-label')).get(1);
+    
+
 }
 module.exports= new FlightSearchLocators();

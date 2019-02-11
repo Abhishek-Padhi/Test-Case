@@ -1,4 +1,4 @@
-var CityCheck = require('../Page Objects/Locators/CityCheckLocators');
+var CityCheck = require('../Page Objects/CityCheckLocators');
 
 var test = require('./Util');
 
@@ -41,12 +41,20 @@ describe("Testing for correctness of route", function () {
         //Clicking the search button
         CityCheck.SearchButton.click();
 
+browser.sleep(5000);
+
         //Checking displayed routes
         browser.wait(CityCheck.DepartRoute.isDisplayed(), 20000).then(function () {
-            expect(CityCheck.DepartRoute).toEqual(OriginCity + " to " + DestinationCity);
-            expect(CityCheck.ReturnRoute).toEqual(DestinationCity + " to " + OriginCity);
-            console.log("Routes are correct");
-            console.log(CityCheck.DepartRoute);
+            expect(CityCheck.DepartRoute.getText()).toEqual(OriginCity + " to " + DestinationCity).then(function () {
+
+                console.log("Departure Route is correct")
+            })
+
+            expect(CityCheck.ReturnRoute.getText()).toEqual(DestinationCity + " to " + OriginCity).then(function () {
+                console.log("Return Route are correct");
+            })
+
+
 
 
 

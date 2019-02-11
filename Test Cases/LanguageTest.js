@@ -1,5 +1,5 @@
 //importing locators from LanguageTestLocators.js
-var LanguageTest = require("../../ProtractorNew/Page Objects/Locators/LanguageTestLocators");
+var LanguageTest = require(".././Page Objects/LanguageTestLocators");
 
 //import functions from Util.js
 var test = require('./Util');
